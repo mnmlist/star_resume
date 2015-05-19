@@ -1,0 +1,100 @@
+/* http://www.menucool.com */
+
+#sliderFrame, #sliderFrame div {
+    box-sizing: content-box;
+}
+
+#sliderFrame 
+{
+    position:relative;
+    width:700px;
+    margin: 0 auto; /*center-aligned*/
+}
+
+#slider, #slider div.sliderInner {
+    width:400px;height:600px;/* Must be the same size as the slider images */
+    border-radius: 6px;
+}
+
+#slider {
+	background:#fff url(loading.gif) no-repeat 50% 50%;
+	position:relative;
+    transform: translate3d(0,0,0);
+    box-shadow: 0px 1px 5px #999999;
+}
+
+/* Caption styles */
+#slider div.mc-caption-bg, #slider div.mc-caption-bg2 {
+	position:absolute;
+	width:300px;
+	height:auto;
+	padding:10px 0;/* 10px will increase the height.*/
+	left:120px; /*if the caption needs to be aligned from right, specify by right instead of left. i.e. right:20px;*/
+	bottom:10px;/*if the caption needs to be aligned from top, specify by top instead of bottom. i.e. top:150px;*/
+	z-index:3;
+	overflow:hidden;
+	font-size: 0;
+}
+#slider div.mc-caption-bg2 {
+    background:none;
+}
+/* ------ built-in navigation bullets wrapper ------*/
+/* Note: check themes\2\js-image-slider.css to see how to hide nav bullets */
+#slider div.navBulletsWrapper  {
+	top:588px;/* Its position is relative to the #slider */
+	text-align:center;
+	background:none;
+	font-size:0; 
+	position:relative;
+	z-index:5;
+}
+
+/* each bullet */
+#slider div.navBulletsWrapper div 
+{
+    width:9px; height:9px;
+    border:1px solid #AAA;
+    background:#EEE;
+    color:#AAA;
+    font-size:0;
+    text-align:center;
+    display:inline-block; *display:inline; zoom:1;
+    overflow:hidden;cursor:pointer;
+    margin:0 9px;/* set distance between each bullet*/
+    border-radius:50%;
+    box-shadow:inset 0 0 4px #AAA;
+}
+
+#slider div.navBulletsWrapper div.active {
+    border-color:#3E99C6;
+    background:#259FDC;
+    color:White;
+}
+
+
+/* --------- Others ------- */
+
+#slider div.loading 
+{
+    width:100%; height:100%;
+    background:transparent url(loading.gif) no-repeat 50% 50%;
+    filter: alpha(opacity=60);
+    opacity:0.6;
+    position:absolute;
+    left:0;
+    top:0; 
+    z-index:9;
+}
+
+#slider img, #slider>b, #slider a>b {
+	position:absolute; border:none; display:none;
+}
+
+#slider div.sliderInner {
+	overflow:hidden; 
+	-webkit-transform: rotate(0.000001deg);/* fixed the Chrome not crop border-radius bug*/
+	position:absolute; top:0; left:0;
+}
+
+#slider>a, #slider video, #slider audio {display:none;}
+#slider div {-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
